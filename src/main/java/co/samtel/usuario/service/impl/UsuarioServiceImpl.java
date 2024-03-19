@@ -28,7 +28,7 @@ public class UsuarioServiceImpl {
     UsuarioDao usuarioDao;
 
     @Transactional
-    public List<UsuarioTypeResponse> crearUsuario(UsuarioTypeInput usuarioTypeInput) {
+    public UsuarioTypeResponse crearUsuario(UsuarioTypeInput usuarioTypeInput) {
         LOG.info("Inicia crear usuario");
         UsuarioTypeResponse response;
         try {
@@ -40,11 +40,11 @@ public class UsuarioServiceImpl {
             LOG.error("Error al crear usuario");
             throw new ApplicationException(ERROR_SERVICIO + e.getMessage());
         }
-        return Collections.singletonList(response);
+        return response;
     }
 
     @Transactional
-    public List<UsuarioTypeResponse> listarUsuario(Integer idtblUser){
+    public UsuarioTypeResponse listarUsuario(Integer idtblUser){
         LOG.info("Inicia listarUsuarioImpl");
         UsuarioTypeResponse response;
         try {
@@ -56,11 +56,11 @@ public class UsuarioServiceImpl {
             LOG.error("Se presento un error al listar usuario por id"+ e.getMessage());
             throw new ApplicationException(ERROR_SERVICIO + e.getMessage());
         }
-        return  Collections.singletonList(response);
+        return  response;
     }
 
     @Transactional
-    public void eliminarUsuario (Integer id){
+    public void eliminarUsuario(Integer id){
         LOG.info("Se inicia la eliminacion de dato");
         try{
             usuarioDao.deleteById(Long.valueOf(id));
@@ -72,7 +72,7 @@ public class UsuarioServiceImpl {
     }
 
     @Transactional
-    public List<UsuarioTypeResponse> editarUsuario(Integer idtblUser, UsuarioTypeInput usuarioTypeInput) {
+    public UsuarioTypeResponse editarUsuario(Integer idtblUser, UsuarioTypeInput usuarioTypeInput) {
         LOG.info("Inicia edicion del usuario");
         UsuarioTypeResponse response;
         try{
@@ -91,7 +91,7 @@ public class UsuarioServiceImpl {
             LOG.error("Se presento un error al listar usuario por id"+ e.getMessage());
             throw new ApplicationException(ERROR_SERVICIO + e.getMessage());
         }
-        return  Collections.singletonList(response);
+        return  response;
     }
 
     @Transactional
