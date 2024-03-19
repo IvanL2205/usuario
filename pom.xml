@@ -138,6 +138,7 @@
                 <sourceFolder>src/main/java</sourceFolder>
                 <supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
                 <generateAdditionalProperties>true</generateAdditionalProperties>
+                <returnResponse>true</returnResponse>
                 <validateSpec>false</validateSpec>
               </configOptions>
             </configuration>
