@@ -22,8 +22,6 @@ public class UsuarioController implements V1UsuarioApi {
     public List<UsuarioTypeResponse> crearUsuario(UsuarioTypeInput usuarioTypeInput){
         LOG.info("Inicia crearUsuarioController");
         try {
-            //Object usuarioType = usuarioServiceImpl.crearUsuario(usuarioTypeInput);
-            //LOG.info("Termina crearUsuario");
             return usuarioServiceImpl.crearUsuario(usuarioTypeInput);
         }catch (ApplicationException e) {
             LOG.error("Se identifica error ");
